@@ -28,18 +28,20 @@ export function Calendario({ matches }: CalendarioProps) {
     <div className="max-w-7xl mx-auto p-6">
       {/* Próximo partido */}
       {nextMatch && (
-        <div className="bg-gradient-to-r from-sky-400 to-blue-500 rounded-xl p-4 mb-4 text-white shadow-md max-w-md mx-auto">
-          <h2 className="text-base font-semibold mb-2 opacity-90 text-center">Próximo partido</h2>
-          <div className="flex justify-center items-center">
-            <div className="text-center">
+        <div className="bg-gradient-to-r from-sky-400 to-blue-500 rounded-xl p-4 mb-4 text-white shadow-md max-w-md mx-auto relative">
+          <h2 className="text-base font-semibold mb-3 opacity-90 text-center">Próximo partido</h2>
+          <div className="flex justify-between items-center">
+            <div className="w-2/5 text-center">
               <div className="font-bold text-sm">{nextMatch.team1}</div>
             </div>
-            <span className="mx-4 text-xl font-bold">VS</span>
-            <div className="text-center">
+            <div className="w-1/5 text-center absolute left-1/2 -translate-x-1/2">
+              <span className="text-xl font-bold">VS</span>
+            </div>
+            <div className="w-2/5 text-center">
               <div className="font-bold text-sm">{nextMatch.team2}</div>
             </div>
           </div>
-          <p className="mt-2 opacity-90 text-sm text-center">
+          <p className="mt-3 opacity-90 text-sm text-center">
             Grupo {nextMatch.group} • {nextMatch.date} • {nextMatch.time}
           </p>
         </div>
