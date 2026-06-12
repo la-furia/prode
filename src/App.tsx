@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import { Navbar } from './components/Navbar'
 import { Posiciones } from './pages/Posiciones'
 import { Calendario } from './pages/Calendario'
@@ -11,7 +11,7 @@ function App() {
   const players = [diegoGalarza, anaMartinez]
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
         <Navbar />
         <main className="py-6">
@@ -22,7 +22,7 @@ function App() {
           </Routes>
         </main>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
