@@ -45,23 +45,21 @@ export function Calendario({ matches }: CalendarioProps) {
       {/* Próximo partido */}
       {nextMatch && (
         <div className="bg-gradient-to-r from-sky-400 to-blue-500 rounded-xl p-4 mb-4 text-white shadow-md max-w-md mx-auto relative">
-          <div className="flex items-center justify-center mb-2">
-            <h2 className="text-base font-semibold opacity-90">Próximo partido</h2>
-            {isMatchLive(nextMatch) && (
-              <>
-                <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse ml-2"></div>
-                <span className="text-red-100 font-bold text-sm ml-1">EN VIVO</span>
-              </>
-            )}
-          </div>
-          <div className="flex justify-between items-center">
-            <div className="w-2/5 text-center">
+          <h2 className="text-base font-semibold mb-2 opacity-90 text-center">Próximo partido</h2>
+          {isMatchLive(nextMatch) && (
+            <div className="absolute bottom-2 right-2 flex items-center">
+              <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
+              <span className="text-red-100 font-bold text-xs ml-1">EN VIVO</span>
+            </div>
+          )}
+          <div className="flex justify-between items-center relative">
+            <div className="w-5/12 text-center">
               <div className="font-bold text-sm">{nextMatch.team1}</div>
             </div>
-            <div className="w-1/5 text-center absolute left-1/2 -translate-x-1/2">
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               <span className="text-xl font-bold">VS</span>
             </div>
-            <div className="w-2/5 text-center">
+            <div className="w-5/12 text-center">
               <div className="font-bold text-sm">{nextMatch.team2}</div>
             </div>
           </div>
