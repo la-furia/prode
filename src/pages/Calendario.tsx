@@ -28,8 +28,8 @@ export function Calendario({ matches }: CalendarioProps) {
     <div className="max-w-7xl mx-auto p-6">
       {/* Próximo partido */}
       {nextMatch && (
-        <div className="bg-gradient-to-r from-sky-400 to-blue-500 rounded-xl p-4 mb-4 text-white shadow-md">
-          <h2 className="text-base font-semibold mb-2 opacity-90">Próximo partido</h2>
+        <div className="bg-gradient-to-r from-sky-400 to-blue-500 rounded-xl p-4 mb-4 text-white shadow-md max-w-md mx-auto">
+          <h2 className="text-base font-semibold mb-2 opacity-90 text-center">Próximo partido</h2>
           <div className="flex justify-center items-center">
             <div className="text-center">
               <div className="font-bold text-sm">{nextMatch.team1}</div>
@@ -46,7 +46,7 @@ export function Calendario({ matches }: CalendarioProps) {
       )}
 
       {/* Filtros de grupo */}
-      <div className="flex flex-wrap gap-2 mb-6">
+      <div className="flex flex-wrap gap-2 mb-6 justify-center">
         {groups.map((group) => (
           <button
             key={group}
@@ -63,46 +63,48 @@ export function Calendario({ matches }: CalendarioProps) {
       </div>
 
       {/* Partidos */}
-      <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-        {filteredMatches.length === 0 ? (
-          <p className="text-gray-500 col-span-3 text-center py-8">Selecciona un grupo para ver los partidos</p>
-        ) : (
-          filteredMatches.map((match) => (
-            <div
-              key={match.id}
-              className="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow"
-            >
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-xs font-semibold text-indigo-600 bg-indigo-100 px-2 py-1 rounded">
-                  Grupo {match.group}
-                </span>
-                {match.result && (
-                  <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">
-                    Finalizado
+      <div className="flex justify-center">
+        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 max-w-5xl w-full">
+          {filteredMatches.length === 0 ? (
+            <p className="text-gray-500 col-span-3 text-center py-8">Selecciona un grupo para ver los partidos</p>
+          ) : (
+            filteredMatches.map((match) => (
+              <div
+                key={match.id}
+                className="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow"
+              >
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-xs font-semibold text-indigo-600 bg-indigo-100 px-2 py-1 rounded">
+                    Grupo {match.group}
                   </span>
-                )}
-              </div>
+                  {match.result && (
+                    <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">
+                      Finalizado
+                    </span>
+                  )}
+                </div>
 
-              <div className="flex justify-center items-center">
-                <div className="text-center w-5/12">
-                  <span className="font-semibold text-gray-800 text-sm">{match.team1}</span>
+                <div className="flex justify-center items-center">
+                  <div className="text-center w-5/12">
+                    <span className="font-semibold text-gray-800 text-sm">{match.team1}</span>
+                  </div>
+                  <div className="text-center w-2/12">
+                    <span className="text-lg font-bold text-indigo-600">
+                      {match.result ? `${match.result.team1 ?? '-'} - ${match.result.team2 ?? '-'}` : 'VS'}
+                    </span>
+                  </div>
+                  <div className="text-center w-5/12">
+                    <span className="font-semibold text-gray-800 text-sm">{match.team2}</span>
+                  </div>
                 </div>
-                <div className="text-center w-2/12">
-                  <span className="text-lg font-bold text-indigo-600">
-                    {match.result ? `${match.result.team1 ?? '-'} - ${match.result.team2 ?? '-'}` : 'VS'}
-                  </span>
-                </div>
-                <div className="text-center w-5/12">
-                  <span className="font-semibold text-gray-800 text-sm">{match.team2}</span>
-                </div>
-              </div>
 
-              <p className="text-xs text-gray-500 mt-2">
-                {match.date} • {match.time}
-              </p>
-            </div>
-          ))
-        )}
+                <p className="text-xs text-gray-500 mt-2">
+                  {match.date} • {match.time}
+                </p>
+              </div>
+            ))
+          )}
+        </div>
       </div>
     </div>
   )
