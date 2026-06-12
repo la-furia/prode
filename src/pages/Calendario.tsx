@@ -28,14 +28,18 @@ export function Calendario({ matches }: CalendarioProps) {
     <div className="max-w-7xl mx-auto p-6">
       {/* Próximo partido */}
       {nextMatch && (
-        <div className="bg-gradient-to-r from-sky-400 to-blue-500 rounded-xl p-6 mb-6 text-white shadow-lg">
-          <h2 className="text-lg font-semibold mb-2 opacity-90">Próximo partido</h2>
-          <div className="flex justify-between items-center">
-            <span className="font-bold text-xl">{nextMatch.team1}</span>
-            <span className="text-2xl font-bold">VS</span>
-            <span className="font-bold text-xl">{nextMatch.team2}</span>
+        <div className="bg-gradient-to-r from-sky-400 to-blue-500 rounded-xl p-4 mb-4 text-white shadow-md">
+          <h2 className="text-base font-semibold mb-2 opacity-90">Próximo partido</h2>
+          <div className="flex justify-center items-center">
+            <div className="text-center">
+              <div className="font-bold text-sm">{nextMatch.team1}</div>
+            </div>
+            <span className="mx-4 text-xl font-bold">VS</span>
+            <div className="text-center">
+              <div className="font-bold text-sm">{nextMatch.team2}</div>
+            </div>
           </div>
-          <p className="mt-2 opacity-90">
+          <p className="mt-2 opacity-90 text-sm text-center">
             Grupo {nextMatch.group} • {nextMatch.date} • {nextMatch.time}
           </p>
         </div>
@@ -79,12 +83,18 @@ export function Calendario({ matches }: CalendarioProps) {
                 )}
               </div>
 
-              <div className="flex justify-between items-center">
-                <span className="font-semibold text-gray-800">{match.team1}</span>
-                <span className="text-lg font-bold text-indigo-600">
-                  {match.result ? `${match.result.team1 ?? '-'} - ${match.result.team2 ?? '-'}` : 'VS'}
-                </span>
-                <span className="font-semibold text-gray-800">{match.team2}</span>
+              <div className="flex justify-center items-center">
+                <div className="text-center w-5/12">
+                  <span className="font-semibold text-gray-800 text-sm">{match.team1}</span>
+                </div>
+                <div className="text-center w-2/12">
+                  <span className="text-lg font-bold text-indigo-600">
+                    {match.result ? `${match.result.team1 ?? '-'} - ${match.result.team2 ?? '-'}` : 'VS'}
+                  </span>
+                </div>
+                <div className="text-center w-5/12">
+                  <span className="font-semibold text-gray-800 text-sm">{match.team2}</span>
+                </div>
               </div>
 
               <p className="text-xs text-gray-500 mt-2">
