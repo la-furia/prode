@@ -1,0 +1,14 @@
+Composición de los 12 GruposDe acuerdo con el fixture oficial de la FIFA, los grupos quedaron conformados de la siguiente manera:
+
+Grupo A: México, Sudáfrica, Corea del Sur, República Checa.
+Grupo B: Canadá, Bosnia y Herzegovina, Qatar, Suiza.
+Grupo C: Brasil, Marruecos, Haití, Escocia.
+Grupo D: Estados Unidos, Paraguay, Australia, Turquía.
+Grupo E: Alemania, Curazao, Costa de Marfil, Ecuador.
+Grupo F: Países Bajos, Japón, Suecia, Túnez.
+Grupo G: Bélgica, Egipto, Irán, Nueva Zelanda.
+Grupo H: España, Cabo Verde, Arabia Saudita, Uruguay.
+Grupo I: Francia, Senegal, Irak, Noruega.
+Grupo J: Argentina, Argelia, Austria, Jordania.
+Grupo K: Portugal, República Democrática del Congo, Uzbekistán, Colombia.
+Grupo L: Inglaterra, Croacia, Ghana, Panama.
