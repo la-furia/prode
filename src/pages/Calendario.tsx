@@ -8,15 +8,31 @@ interface CalendarioProps {
 export function Calendario({ matches }: CalendarioProps) {
   const [selectedGroup, setSelectedGroup] = useState<string>('A')
 
-  // Encontrar próximo partido (por fecha y hora)
+  const now = new Date().getTime()
+
+  // Verificar si un partido está en vivo (dentro de los 90 minutos)
+  const isMatchLive = (match: Match) => {
+    const start = new Date(`${match.date}T${match.time}`).getTime()
+    return now >= start && now < start + 90 * 60 * 1000
+  }
+
+  // Encontrar partido en vivo o próximo partido
   const nextMatch = useMemo(() => {
     const futureMatches = matches.filter((m) => !m.result)
+
+    // Primero buscar partidos en vivo
+    const liveMatches = futureMatches.filter(isMatchLive)
+    if (liveMatches.length > 0) {
+      return liveMatches[0]
+    }
+
+    // Si no hay en vivo, buscar el próximo partido
     return futureMatches.sort((a, b) => {
       const dateA = new Date(`${a.date}T${a.time}`).getTime()
       const dateB = new Date(`${b.date}T${b.time}`).getTime()
       return dateA - dateB
     })[0]
-  }, [matches])
+  }, [matches, now])
 
   const filteredMatches = selectedGroup
     ? matches.filter((m) => m.group === selectedGroup)
@@ -29,7 +45,15 @@ export function Calendario({ matches }: CalendarioProps) {
       {/* Próximo partido */}
       {nextMatch && (
         <div className="bg-gradient-to-r from-sky-400 to-blue-500 rounded-xl p-4 mb-4 text-white shadow-md max-w-md mx-auto relative">
-          <h2 className="text-base font-semibold mb-3 opacity-90 text-center">Próximo partido</h2>
+          <div className="flex items-center justify-center mb-2">
+            <h2 className="text-base font-semibold opacity-90">Próximo partido</h2>
+            {isMatchLive(nextMatch) && (
+              <>
+                <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse ml-2"></div>
+                <span className="text-red-100 font-bold text-sm ml-1">EN VIVO</span>
+              </>
+            )}
+          </div>
           <div className="flex justify-between items-center">
             <div className="w-2/5 text-center">
               <div className="font-bold text-sm">{nextMatch.team1}</div>
