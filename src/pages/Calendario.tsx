@@ -28,7 +28,7 @@ export function Calendario({ matches }: CalendarioProps) {
     <div className="max-w-7xl mx-auto p-6">
       {/* Próximo partido */}
       {nextMatch && (
-        <div className="bg-gradient-to-r from-amber-400 to-orange-500 rounded-xl p-6 mb-6 text-white shadow-lg">
+        <div className="bg-gradient-to-r from-sky-400 to-blue-500 rounded-xl p-6 mb-6 text-white shadow-lg">
           <h2 className="text-lg font-semibold mb-2 opacity-90">Próximo partido</h2>
           <div className="flex justify-between items-center">
             <span className="font-bold text-xl">{nextMatch.team1}</span>
