@@ -29,6 +29,7 @@ export const matches: Match[] = [
 
   // ========== FECHA 6 ==========
   { id: 'i1', group: 'I', team1: 'FRANCIA', team2: 'SENEGAL', date: '2026-06-16', time: '16:00', result: undefined },
+  { id: 'i2', group: 'I', team1: 'IRAK', team2: 'NORUEGA', date: '2026-06-16', time: '19:00', result: undefined },
   { id: 'j1', group: 'J', team1: 'ARGENTINA', team2: 'ARGELIA', date: '2026-06-16', time: '22:00', result: undefined },
 
   // ========== FECHA 7 ==========

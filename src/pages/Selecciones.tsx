@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { Match, Player } from '../utils/types'
-import { calculateTotalPoints } from '../utils/scoring'
+import { calculateTotalPoints, calculatePoints } from '../utils/scoring'
 
 interface SeleccionesProps {
   players: Player[]
@@ -9,11 +9,21 @@ interface SeleccionesProps {
 
 export function Selecciones({ players, matches }: SeleccionesProps) {
   const [selectedPlayer, setSelectedPlayer] = useState<string>(players[0]?.name || '')
+  const [showCompleted, setShowCompleted] = useState(true)
+  const [showPending, setShowPending] = useState(true)
 
   const player = players.find((p) => p.name === selectedPlayer)
 
   const hasPrediction = (pred: { team1: number | null; team2: number | null }) => {
     return pred.team1 !== null && pred.team2 !== null
+  }
+
+  const getPredictionStatus = (prediction: { team1: number; team2: number }, result: { team1: number; team2: number }) => {
+    const exact = prediction.team1 === result.team1 && prediction.team2 === result.team2
+    const correctWinner = (prediction.team1 > prediction.team2 && result.team1 > result.team2) ||
+                          (prediction.team1 < prediction.team2 && result.team1 < result.team2) ||
+                          (prediction.team1 === prediction.team2 && result.team1 === result.team2)
+    return { exact, correctWinner }
   }
 
   return (
@@ -55,36 +65,126 @@ export function Selecciones({ players, matches }: SeleccionesProps) {
                 Predicciones de <span className="text-indigo-600">{player.name}</span>
               </h2>
 
-              <div className="grid gap-3 md:grid-cols-2">
-                {matches.map((match) => {
-                  const pred = player.predictions[match.id]
-                  const validPrediction = pred && hasPrediction(pred)
+              {/* Partidos Finalizados */}
+              <div className="mb-4">
+                <button
+                  onClick={() => setShowCompleted(!showCompleted)}
+                  className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                >
+                  <span className="font-semibold text-gray-700">📋 Finalizadas</span>
+                  <svg className="w-4 h-4 text-gray-400 transition-transform" style={{ transform: showCompleted ? 'rotate(180deg)' : 'rotate(0deg)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+                </button>
 
-                  return (
-                    <div
-                      key={match.id}
-                      className="bg-gradient-to-r from-gray-50 to-white p-4 rounded-lg border-l-4 border-indigo-500"
-                    >
-                      <div className="text-xs font-semibold text-indigo-600 mb-1">
-                        Grupo {match.group} • {match.team1} vs {match.team2}
-                      </div>
+                {showCompleted && (
+                  <div className="mt-3 grid gap-3 md:grid-cols-2">
+                    {matches
+                      .filter((match) => match.result)
+                      .map((match) => {
+                        const pred = player.predictions[match.id]
+                        const validPrediction = pred && hasPrediction(pred)
+                        const status = validPrediction && match.result && pred.team1 !== null && pred.team2 !== null && match.result.team1 !== null && match.result.team2 !== null
+                          ? getPredictionStatus({ team1: pred.team1, team2: pred.team2 }, { team1: match.result.team1, team2: match.result.team2 })
+                          : null
 
-                      <div className="flex justify-between items-center">
-                        {validPrediction ? (
-                          <>
-                            <span className="font-medium">{match.team1}</span>
-                            <span className="font-bold text-lg text-indigo-600">
-                              {pred.team1} - {pred.team2}
-                            </span>
-                            <span className="font-medium">{match.team2}</span>
-                          </>
-                        ) : (
-                          <span className="text-gray-400">Sin predicción</span>
-                        )}
-                      </div>
-                    </div>
-                  )
-                })}
+                        const points = validPrediction && match.result
+                          ? calculatePoints(pred, match.result)
+                          : 0
+
+                        const predictionColor = status?.exact ? 'text-green-600' : status?.correctWinner ? 'text-orange-600' : 'text-gray-700'
+                        const borderColor = status?.exact ? 'border-green-500' : status?.correctWinner ? 'border-orange-500' : 'border-gray-300'
+                        const pointsColor = points === 3 ? 'bg-green-500' : points === 1 ? 'bg-orange-500' : ''
+
+                        return (
+                          <div
+                            key={match.id}
+                            className={`bg-gradient-to-r from-gray-50 to-white p-4 rounded-lg border-l-4 ${borderColor} relative`}
+                          >
+                            <div className={`text-xs font-semibold mb-1 ${status?.exact ? 'text-green-600' : status?.correctWinner ? 'text-orange-600' : 'text-gray-600'}`}>
+                              Grupo {match.group} • {match.team1} vs {match.team2}
+                            </div>
+
+                            {points > 0 && (
+                              <div className={`absolute -top-3 -right-1 ${pointsColor} text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center shadow-md`}>
+                                +{points}
+                              </div>
+                            )}
+
+                            <div className="flex justify-between items-center relative">
+                              {validPrediction ? (
+                                <>
+                                  <div className="w-5/12 text-center">
+                                    <span className="font-medium text-sm">{match.team1}</span>
+                                  </div>
+                                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                                    <span className={`font-bold text-lg ${predictionColor}`}>
+                                      {pred.team1} - {pred.team2}
+                                    </span>
+                                  </div>
+                                  <div className="w-5/12 text-center">
+                                    <span className="font-medium text-sm">{match.team2}</span>
+                                  </div>
+                                </>
+                              ) : (
+                                <span className="text-gray-400">Sin predicción</span>
+                              )}
+                            </div>
+                            {validPrediction && !status?.exact && match.result && (
+                              <div className="text-xs text-gray-500 mt-1 text-center">
+                                Resultado: {match.result.team1} - {match.result.team2}
+                              </div>
+                            )}
+                          </div>
+                        )
+                      })}
+                  </div>
+                )}
+              </div>
+
+              {/* Partidos Pendientes */}
+              <div>
+                <button
+                  onClick={() => setShowPending(!showPending)}
+                  className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                >
+                  <span className="font-semibold text-gray-700">⏳ Pendientes</span>
+                  <svg className="w-4 h-4 text-gray-400 transition-transform" style={{ transform: showPending ? 'rotate(180deg)' : 'rotate(0deg)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+                </button>
+
+                {showPending && (
+                  <div className="mt-3 grid gap-3 md:grid-cols-2">
+                    {matches
+                      .filter((match) => !match.result)
+                      .map((match) => {
+                        const pred = player.predictions[match.id]
+                        const validPrediction = pred && hasPrediction(pred)
+
+                        return (
+                          <div
+                            key={match.id}
+                            className="bg-gradient-to-r from-gray-50 to-white p-4 rounded-lg border-l-4 border-indigo-500"
+                          >
+                            <div className="text-xs font-semibold text-indigo-600 mb-1">
+                              Grupo {match.group} • {match.team1} vs {match.team2}
+                            </div>
+
+                            <div className="flex justify-start items-center">
+                              {validPrediction ? (
+                                <span className="font-bold text-gray-700 text-sm">
+                                  {match.team1} {pred.team1} - {pred.team2} {match.team2}
+                                </span>
+                              ) : (
+                                <span className="text-gray-400">Sin predicción</span>
+                              )}
+                            </div>
+                          </div>
+                        )
+                      })}
+                  </div>
+                )}
               </div>
             </div>
           ) : (
