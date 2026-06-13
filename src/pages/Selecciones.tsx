@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import type { Match, Player } from '../utils/types'
 import { calculateTotalPoints, calculatePoints } from '../utils/scoring'
 
@@ -10,9 +10,20 @@ interface SeleccionesProps {
 export function Selecciones({ players, matches }: SeleccionesProps) {
   const [selectedPlayer, setSelectedPlayer] = useState<string>(players[0]?.name || '')
   const [showCompleted, setShowCompleted] = useState(true)
-  const [showPending, setShowPending] = useState(true)
+  const [showPending, setShowPending] = useState(false)
 
-  const player = players.find((p) => p.name === selectedPlayer)
+  const sortedPlayers = useMemo(() => {
+    return [...players].sort((a, b) => {
+      const pointsA = calculateTotalPoints(a.predictions, matches)
+      const pointsB = calculateTotalPoints(b.predictions, matches)
+      if (pointsA !== pointsB) {
+        return pointsB - pointsA // Mayor puntaje primero
+      }
+      return a.name.localeCompare(b.name) // Alfabético por igual
+    })
+  }, [players, matches])
+
+  const player = sortedPlayers.find((p) => p.name === selectedPlayer)
 
   const hasPrediction = (pred: { team1: number | null; team2: number | null }) => {
     return pred.team1 !== null && pred.team2 !== null
@@ -27,16 +38,16 @@ export function Selecciones({ players, matches }: SeleccionesProps) {
   }
 
   return (
-    <div className="max-w-7xl mx-auto p-6">
-      <div className="flex gap-6">
+    <div className="max-w-7xl mx-auto px-3 sm:p-6">
+      <div className="flex flex-col md:flex-row gap-4 md:gap-6">
         {/* Lista de jugadores */}
-        <div className="w-64 flex-shrink-0">
+        <div className="w-full md:w-64 flex-shrink-0">
           <div className="bg-white rounded-xl shadow-lg p-4">
-            <h2 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+            <h2 className="text-lg font-bold text-gray-800 mb-3 md:mb-4 flex items-center gap-2">
               <span>👥</span> Jugadores
             </h2>
-            <div className="max-h-[500px] overflow-y-auto space-y-2 pr-2">
-              {players.map((p) => {
+            <div className="max-h-60 md:max-h-[500px] overflow-y-auto space-y-2 pr-2">
+              {sortedPlayers.map((p) => {
                 const points = calculateTotalPoints(p.predictions, matches)
                 return (
                   <button
@@ -61,8 +72,10 @@ export function Selecciones({ players, matches }: SeleccionesProps) {
         <div className="flex-1">
           {player ? (
             <div className="bg-white rounded-xl shadow-lg p-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                Predicciones de <span className="text-indigo-600">{player.name}</span>
+              <h2 className="text-lg sm:text-2xl font-bold text-gray-800 mb-4">
+                <span className="sm:hidden">Predicciones de<br/></span>
+                <span className="hidden sm:inline">Predicciones de </span>
+                <span className="text-indigo-600">{player.name}</span>
               </h2>
 
               {/* Partidos Finalizados */}
@@ -71,14 +84,22 @@ export function Selecciones({ players, matches }: SeleccionesProps) {
                   onClick={() => setShowCompleted(!showCompleted)}
                   className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
                 >
-                  <span className="font-semibold text-gray-700">📋 Finalizadas</span>
+                  <div className="flex items-center gap-2">
+                    <span className="font-semibold text-gray-700">📋 Finalizadas</span>
+                    <span className="hidden sm:inline text-xs text-gray-500">
+                      {showCompleted ? "(clic para ocultar)" : "(clic para mostrar)"}
+                    </span>
+                    <span className="sm:hidden text-xs text-gray-500">
+                      {showCompleted ? "(toca para ocultar)" : "(toca para mostrar)"}
+                    </span>
+                  </div>
                   <svg className="w-4 h-4 text-gray-400 transition-transform" style={{ transform: showCompleted ? 'rotate(180deg)' : 'rotate(0deg)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
                 </button>
 
                 {showCompleted && (
-                  <div className="mt-3 grid gap-3 md:grid-cols-2">
+                  <div className="mt-3 grid gap-2 sm:gap-3 grid-cols-1 sm:grid-cols-2">
                     {matches
                       .filter((match) => match.result)
                       .map((match) => {
@@ -99,7 +120,7 @@ export function Selecciones({ players, matches }: SeleccionesProps) {
                         return (
                           <div
                             key={match.id}
-                            className={`bg-gradient-to-r from-gray-50 to-white p-4 rounded-lg border-l-4 ${borderColor} relative`}
+                            className={`bg-gradient-to-r from-gray-50 to-white p-3 sm:p-4 rounded-lg border-l-4 ${borderColor} relative`}
                           >
                             <div className={`text-xs font-semibold mb-1 ${status?.exact ? 'text-green-600' : status?.correctWinner ? 'text-orange-600' : 'text-gray-600'}`}>
                               Grupo {match.group} • {match.team1} vs {match.team2}
@@ -148,14 +169,22 @@ export function Selecciones({ players, matches }: SeleccionesProps) {
                   onClick={() => setShowPending(!showPending)}
                   className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
                 >
-                  <span className="font-semibold text-gray-700">⏳ Pendientes</span>
+                  <div className="flex items-center gap-2">
+                    <span className="font-semibold text-gray-700">⏳ Pendientes</span>
+                    <span className="hidden sm:inline text-xs text-gray-500">
+                      {showPending ? "(clic para ocultar)" : "(clic para mostrar)"}
+                    </span>
+                    <span className="sm:hidden text-xs text-gray-500">
+                      {showPending ? "(toca para ocultar)" : "(toca para mostrar)"}
+                    </span>
+                  </div>
                   <svg className="w-4 h-4 text-gray-400 transition-transform" style={{ transform: showPending ? 'rotate(180deg)' : 'rotate(0deg)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
                 </button>
 
                 {showPending && (
-                  <div className="mt-3 grid gap-3 md:grid-cols-2">
+                  <div className="mt-3 grid gap-2 sm:gap-3 grid-cols-1 sm:grid-cols-2">
                     {matches
                       .filter((match) => !match.result)
                       .map((match) => {

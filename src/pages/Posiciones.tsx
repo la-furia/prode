@@ -10,9 +10,9 @@ export function Posiciones({ players, matches }: PosicionesProps) {
   const ranking = getLeaderboard(players, matches)
 
   return (
-    <div className="max-w-2xl mx-auto p-6">
+    <div className="max-w-2xl mx-auto px-3 sm:p-6">
       <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-        <div className="bg-gradient-to-r from-indigo-600 to-blue-600 px-6 py-4">
+        <div className="bg-gradient-to-r from-indigo-600 to-blue-600 px-4 sm:px-6 py-3 sm:py-4">
           <h1 className="text-2xl font-bold text-white flex items-center gap-2">
             <span>🏆</span> Posiciones Prode
           </h1>
@@ -22,9 +22,9 @@ export function Posiciones({ players, matches }: PosicionesProps) {
           <table className="w-full">
             <thead>
               <tr className="bg-gray-50 border-b">
-                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-600">#</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-600">Jugador</th>
-                <th className="px-4 py-3 text-center text-sm font-semibold text-gray-600">Puntos</th>
+                <th className="px-2 sm:px-4 py-2 sm:py-3 text-left text-xs sm:text-sm font-semibold text-gray-600">#</th>
+                <th className="px-2 sm:px-4 py-2 sm:py-3 text-left text-xs sm:text-sm font-semibold text-gray-600">Jugador</th>
+                <th className="px-2 sm:px-4 py-2 sm:py-3 text-center text-xs sm:text-sm font-semibold text-gray-600">Puntos</th>
               </tr>
             </thead>
             <tbody>
@@ -35,7 +35,7 @@ export function Posiciones({ players, matches }: PosicionesProps) {
                     index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'
                   }`}
                 >
-                  <td className="px-4 py-3">
+                  <td className="px-2 sm:px-4 py-2 sm:py-3">
                     <span
                       className={`flex items-center justify-center w-8 h-8 font-bold rounded-full ${
                         index === 0

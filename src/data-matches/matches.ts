@@ -6,7 +6,7 @@ export const matches: Match[] = [
   { id: 'a2', group: 'A', team1: 'COREA DEL SUR', team2: 'REPÚBLICA CHECA', date: '2026-06-11', time: '23:00', result: { team1: 2, team2: 1 } },
 
   // ========== FECHA 2 ==========
-  { id: 'b1', group: 'B', team1: 'CANADÁ', team2: 'BOSNIA Y HERZEGOVINA', date: '2026-06-12', time: '16:00', result: undefined },
+  { id: 'b1', group: 'B', team1: 'CANADÁ', team2: 'BOSNIA Y HERZEGOVINA', date: '2026-06-12', time: '16:00', result: { team1: 1, team2: 1 } },
   { id: 'd1', group: 'D', team1: 'ESTADOS UNIDOS', team2: 'PARAGUAY', date: '2026-06-12', time: '22:00', result: undefined },
 
   // ========== FECHA 3 ==========
