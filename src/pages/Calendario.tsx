@@ -16,18 +16,29 @@ export function Calendario({ matches }: CalendarioProps) {
     return now >= start && now < start + 90 * 60 * 1000
   }
 
+  // Verificar si un partido ya terminó (más de 90 minutos de haber empezado)
+  const isMatchFinished = (match: Match) => {
+    const start = new Date(`${match.date}T${match.time}`).getTime()
+    return now >= start + 90 * 60 * 1000
+  }
+
   // Encontrar partido en vivo o próximo partido
   const nextMatch = useMemo(() => {
-    const futureMatches = matches.filter((m) => !m.result)
+    const allMatches = matches
 
     // Primero buscar partidos en vivo
-    const liveMatches = futureMatches.filter(isMatchLive)
+    const liveMatches = allMatches.filter(isMatchLive)
     if (liveMatches.length > 0) {
-      return liveMatches[0]
+      return liveMatches.sort((a, b) => {
+        const dateA = new Date(`${a.date}T${a.time}`).getTime()
+        const dateB = new Date(`${b.date}T${b.time}`).getTime()
+        return dateA - dateB
+      })[0]
     }
 
-    // Si no hay en vivo, buscar el próximo partido
-    return futureMatches.sort((a, b) => {
+    // Si no hay en vivo, buscar el próximo partido (sin importar si tiene resultado)
+    const upcomingMatches = allMatches.filter((m) => !isMatchFinished(m))
+    return upcomingMatches.sort((a, b) => {
       const dateA = new Date(`${a.date}T${a.time}`).getTime()
       const dateB = new Date(`${b.date}T${b.time}`).getTime()
       return dateA - dateB
