@@ -2,10 +2,6 @@
 
 Aplicación web para el pronóstico de partidos del Club Libertador (Mundial 2026).
 
-## Demo
-
-https://eridamus21.github.io/prode-club-libertador/
-
 ## Características
 
 - **Posiciones**: Tabla de clasificación con los puntos de cada jugador
