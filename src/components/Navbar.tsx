@@ -5,6 +5,7 @@ export function Navbar() {
     { to: '/', label: 'Posiciones', icon: '🏆' },
     { to: '/calendario', label: 'Calendario', icon: '📅' },
     { to: '/selecciones', label: 'Selecciones', icon: '👥' },
+    //{ to: '/cargar-predicciones', label: 'Cargar', icon: '📤' },
   ]
 
   return (
