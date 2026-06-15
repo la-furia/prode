@@ -1,7 +1,7 @@
 import type { Player } from '../utils/types'
 
 export const carosRivadeneira: Player = {
-  name: 'Caros Rivadeneira',
+  name: 'Carlos Rivadeneira',
   predictions: {
   "a1": {
     "team1": 1,
