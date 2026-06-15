@@ -57,7 +57,7 @@ export const churra: Player = {
   },
   "g1": {
     "team1": 2,
-    "team2": 1
+    "team2": 0
   },
   "h2": {
     "team1": 1,
@@ -80,7 +80,7 @@ export const churra: Player = {
     "team2": 1
   },
   "j2": {
-    "team1": 3,
+    "team1": 2,
     "team2": 0
   },
   "k1": {
