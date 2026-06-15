@@ -17,9 +17,9 @@ export const matches: Match[] = [
   
   // ========== FECHA 4 ==========
   { id: 'e1', group: 'E', team1: 'ALEMANIA', team2: 'CURAZAO', date: '2026-06-14', time: '14:00', result: { team1: 7, team2: 1 } },
-  { id: 'f1', group: 'F', team1: 'PAÍSES BAJOS', team2: 'JAPÓN', date: '2026-06-14', time: '17:00', result: undefined },
-  { id: 'e2', group: 'E', team1: 'COSTA DE MARFIL', team2: 'ECUADOR', date: '2026-06-14', time: '20:00', result: undefined },
-  { id: 'f2', group: 'F', team1: 'SUECIA', team2: 'TÚNEZ', date: '2026-06-14', time: '23:00', result: undefined },
+  { id: 'f1', group: 'F', team1: 'PAÍSES BAJOS', team2: 'JAPÓN', date: '2026-06-14', time: '17:00', result: { team1: 2, team2: 2 } },
+  { id: 'e2', group: 'E', team1: 'COSTA DE MARFIL', team2: 'ECUADOR', date: '2026-06-14', time: '20:00', result: { team1: 1, team2: 0 } },
+  { id: 'f2', group: 'F', team1: 'SUECIA', team2: 'TÚNEZ', date: '2026-06-14', time: '23:00', result: { team1: 5, team2: 1 } },
 
   // ========== FECHA 5 ==========
   { id: 'h1', group: 'H', team1: 'ESPAÑA', team2: 'CABO VERDE', date: '2026-06-15', time: '13:00', result: undefined },
