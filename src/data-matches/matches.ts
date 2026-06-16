@@ -22,10 +22,10 @@ export const matches: Match[] = [
   { id: 'f2', group: 'F', team1: 'SUECIA', team2: 'TÚNEZ', date: '2026-06-14', time: '23:00', result: { team1: 5, team2: 1 } },
 
   // ========== FECHA 5 ==========
-  { id: 'h1', group: 'H', team1: 'ESPAÑA', team2: 'CABO VERDE', date: '2026-06-15', time: '13:00', result: undefined },
-  { id: 'g1', group: 'G', team1: 'BELGICA', team2: 'EGIPTO', date: '2026-06-15', time: '16:00', result: undefined },
-  { id: 'h2', group: 'H', team1: 'ARABIA SAUDITA', team2: 'URUGUAY', date: '2026-06-15', time: '19:00', result: undefined },
-  { id: 'g2', group: 'G', team1: 'IRÁN', team2: 'NUEVA ZELANDA', date: '2026-06-15', time: '22:00', result: undefined },
+  { id: 'h1', group: 'H', team1: 'ESPAÑA', team2: 'CABO VERDE', date: '2026-06-15', time: '13:00', result: { team1: 0, team2: 0 } },
+  { id: 'g1', group: 'G', team1: 'BELGICA', team2: 'EGIPTO', date: '2026-06-15', time: '16:00', result: { team1: 1, team2: 1 } },
+  { id: 'h2', group: 'H', team1: 'ARABIA SAUDITA', team2: 'URUGUAY', date: '2026-06-15', time: '19:00', result: { team1: 1, team2: 1 } },
+  { id: 'g2', group: 'G', team1: 'IRÁN', team2: 'NUEVA ZELANDA', date: '2026-06-15', time: '22:00', result: { team1: 2, team2: 2 } },
 
   // ========== FECHA 6 ==========
   { id: 'i1', group: 'I', team1: 'FRANCIA', team2: 'SENEGAL', date: '2026-06-16', time: '16:00', result: undefined },
