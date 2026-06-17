@@ -31,7 +31,7 @@ export const matches: Match[] = [
   { id: 'i1', group: 'I', team1: 'FRANCIA', team2: 'SENEGAL', date: '2026-06-16', time: '16:00', result: { team1: 3, team2: 1 } },
   { id: 'i2', group: 'I', team1: 'IRAK', team2: 'NORUEGA', date: '2026-06-16', time: '19:00', result: { team1: 1, team2: 4 } },
   { id: 'j1', group: 'J', team1: 'ARGENTINA', team2: 'ARGELIA', date: '2026-06-16', time: '22:00', result: { team1: 3, team2: 0 } },
-  { id: 'j2', group: 'J', team1: 'AUSTRIA', team2: 'JORDANIA', date: '2026-06-17', time: '01:00', result: undefined },
+  { id: 'j2', group: 'J', team1: 'AUSTRIA', team2: 'JORDANIA', date: '2026-06-17', time: '01:00', result: { team1: 3, team2: 1 } },
   
   // ========== FECHA 7 ==========
   { id: 'k1', group: 'K', team1: 'PORTUGAL', team2: 'RD CONGO', date: '2026-06-17', time: '14:00', result: undefined },
