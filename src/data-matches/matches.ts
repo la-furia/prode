@@ -34,10 +34,10 @@ export const matches: Match[] = [
   { id: 'j2', group: 'J', team1: 'AUSTRIA', team2: 'JORDANIA', date: '2026-06-17', time: '01:00', result: { team1: 3, team2: 1 } },
   
   // ========== FECHA 7 ==========
-  { id: 'k1', group: 'K', team1: 'PORTUGAL', team2: 'RD CONGO', date: '2026-06-17', time: '14:00', result: undefined },
-  { id: 'l1', group: 'L', team1: 'INGLATERRA', team2: 'CROACIA', date: '2026-06-17', time: '17:00', result: undefined },
-  { id: 'l2', group: 'L', team1: 'GHANA', team2: 'PANAMÁ', date: '2026-06-17', time: '20:00', result: undefined },
-  { id: 'k2', group: 'K', team1: 'UZBEKISTÁN', team2: 'COLOMBIA', date: '2026-06-17', time: '23:00', result: undefined },
+  { id: 'k1', group: 'K', team1: 'PORTUGAL', team2: 'RD CONGO', date: '2026-06-17', time: '14:00', result: { team1: 0, team2: 0 } },
+  { id: 'l1', group: 'L', team1: 'INGLATERRA', team2: 'CROACIA', date: '2026-06-17', time: '17:00', result: { team1: 4, team2: 2 } },
+  { id: 'l2', group: 'L', team1: 'GHANA', team2: 'PANAMÁ', date: '2026-06-17', time: '20:00', result: { team1: 1, team2: 0 } },
+  { id: 'k2', group: 'K', team1: 'UZBEKISTÁN', team2: 'COLOMBIA', date: '2026-06-17', time: '23:00', result: { team1: 1, team2: 3 } },
 
   // ========== FECHA 8 ==========
   { id: 'a3', group: 'A', team1: 'REPÚBLICA CHECA', team2: 'SUDÁFRICA', date: '2026-06-18', time: '13:00', result: undefined },
