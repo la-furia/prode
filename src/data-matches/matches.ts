@@ -40,10 +40,10 @@ export const matches: Match[] = [
   { id: 'k2', group: 'K', team1: 'UZBEKISTÁN', team2: 'COLOMBIA', date: '2026-06-17', time: '23:00', result: { team1: 1, team2: 3 } },
 
   // ========== FECHA 8 ==========
-  { id: 'a3', group: 'A', team1: 'REPÚBLICA CHECA', team2: 'SUDÁFRICA', date: '2026-06-18', time: '13:00', result: undefined },
-  { id: 'b3', group: 'B', team1: 'SUIZA', team2: 'BOSNIA Y HERZEGOVINA', date: '2026-06-18', time: '16:00', result: undefined },
-  { id: 'b4', group: 'B', team1: 'CANADÁ', team2: 'QATAR', date: '2026-06-18', time: '19:00', result: undefined },
-  { id: 'a4', group: 'A', team1: 'MÉXICO', team2: 'COREA DEL SUR', date: '2026-06-18', time: '22:00', result: undefined },
+  { id: 'a3', group: 'A', team1: 'REPÚBLICA CHECA', team2: 'SUDÁFRICA', date: '2026-06-18', time: '13:00', result: { team1: 1, team2: 1 } },
+  { id: 'b3', group: 'B', team1: 'SUIZA', team2: 'BOSNIA Y HERZEGOVINA', date: '2026-06-18', time: '16:00', result: { team1: 4, team2: 1 } },
+  { id: 'b4', group: 'B', team1: 'CANADÁ', team2: 'QATAR', date: '2026-06-18', time: '19:00', result: { team1: 7, team2: 0 } },
+  { id: 'a4', group: 'A', team1: 'MÉXICO', team2: 'COREA DEL SUR', date: '2026-06-18', time: '22:00', result: { team1: 1, team2: 0 } },
 
   // ========== FECHA 9 ==========
   { id: 'd3', group: 'D', team1: 'ESTADOS UNIDOS', team2: 'AUSTRALIA', date: '2026-06-19', time: '16:00', result: undefined },
