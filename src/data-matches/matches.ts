@@ -46,16 +46,16 @@ export const matches: Match[] = [
   { id: 'a4', group: 'A', team1: 'MÉXICO', team2: 'COREA DEL SUR', date: '2026-06-18', time: '22:00', result: { team1: 1, team2: 0 } },
 
   // ========== FECHA 9 ==========
-  { id: 'd3', group: 'D', team1: 'ESTADOS UNIDOS', team2: 'AUSTRALIA', date: '2026-06-19', time: '16:00', result: undefined },
-  { id: 'c3', group: 'C', team1: 'ESCOCIA', team2: 'MARRUECOS', date: '2026-06-19', time: '19:00', result: undefined },
-  { id: 'c4', group: 'C', team1: 'BRASIL', team2: 'HAITÍ', date: '2026-06-19', time: '22:00', result: undefined },
-  { id: 'd4', group: 'D', team1: 'TURQUÍA', team2: 'PARAGUAY', date: '2026-06-19', time: '01:00', result: undefined },
+  { id: 'd3', group: 'D', team1: 'ESTADOS UNIDOS', team2: 'AUSTRALIA', date: '2026-06-19', time: '16:00', result: { team1: 2, team2: 0 } },
+  { id: 'c3', group: 'C', team1: 'ESCOCIA', team2: 'MARRUECOS', date: '2026-06-19', time: '19:00', result: { team1: 0, team2: 1 } },
+  { id: 'c4', group: 'C', team1: 'BRASIL', team2: 'HAITÍ', date: '2026-06-19', time: '22:00', result: { team1: 3, team2: 0 } },
+  { id: 'd4', group: 'D', team1: 'TURQUÍA', team2: 'PARAGUAY', date: '2026-06-20', time: '01:00', result: { team1: 0, team2: 1 } },
 
   // ========== FECHA 10 ==========
   { id: 'f3', group: 'F', team1: 'PAÍSES BAJOS', team2: 'SUECIA', date: '2026-06-20', time: '14:00', result: undefined },
   { id: 'e3', group: 'E', team1: 'ALEMANIA', team2: 'COSTA DE MARFIL', date: '2026-06-20', time: '17:00', result: undefined },
   { id: 'e4', group: 'E', team1: 'ECUADOR', team2: 'CURAZAO', date: '2026-06-20', time: '23:00', result: undefined },
-  { id: 'f4', group: 'F', team1: 'TÚNEZ', team2: 'JAPÓN', date: '2026-06-20', time: '01:00', result: undefined },
+  { id: 'f4', group: 'F', team1: 'TÚNEZ', team2: 'JAPÓN', date: '2026-06-21', time: '01:00', result: undefined },
 
   // ========== FECHA 11 ==========
   { id: 'h3', group: 'H', team1: 'ESPAÑA', team2: 'ARABIA SAUDITA', date: '2026-06-21', time: '13:00', result: undefined },
