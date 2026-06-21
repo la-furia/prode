@@ -52,10 +52,10 @@ export const matches: Match[] = [
   { id: 'd4', group: 'D', team1: 'TURQUÍA', team2: 'PARAGUAY', date: '2026-06-20', time: '01:00', result: { team1: 0, team2: 1 } },
 
   // ========== FECHA 10 ==========
-  { id: 'f3', group: 'F', team1: 'PAÍSES BAJOS', team2: 'SUECIA', date: '2026-06-20', time: '14:00', result: undefined },
-  { id: 'e3', group: 'E', team1: 'ALEMANIA', team2: 'COSTA DE MARFIL', date: '2026-06-20', time: '17:00', result: undefined },
-  { id: 'e4', group: 'E', team1: 'ECUADOR', team2: 'CURAZAO', date: '2026-06-20', time: '23:00', result: undefined },
-  { id: 'f4', group: 'F', team1: 'TÚNEZ', team2: 'JAPÓN', date: '2026-06-21', time: '01:00', result: undefined },
+  { id: 'f3', group: 'F', team1: 'PAÍSES BAJOS', team2: 'SUECIA', date: '2026-06-20', time: '14:00', result: { team1: 5, team2: 1 } },
+  { id: 'e3', group: 'E', team1: 'ALEMANIA', team2: 'COSTA DE MARFIL', date: '2026-06-20', time: '17:00', result: { team1: 2, team2: 1 } },
+  { id: 'e4', group: 'E', team1: 'ECUADOR', team2: 'CURAZAO', date: '2026-06-20', time: '23:00', result: { team1: 0, team2: 0 } },
+  { id: 'f4', group: 'F', team1: 'TÚNEZ', team2: 'JAPÓN', date: '2026-06-21', time: '01:00', result: { team1: 0, team2: 4 } },
 
   // ========== FECHA 11 ==========
   { id: 'h3', group: 'H', team1: 'ESPAÑA', team2: 'ARABIA SAUDITA', date: '2026-06-21', time: '13:00', result: undefined },
