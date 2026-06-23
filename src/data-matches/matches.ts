@@ -64,10 +64,10 @@ export const matches: Match[] = [
   { id: 'g4', group: 'G', team1: 'NUEVA ZELANDA', team2: 'EGIPTO', date: '2026-06-21', time: '22:00', result:  { team1: 1, team2: 3 }  },
 
   // ========== FECHA 12 ==========
-  { id: 'j3', group: 'J', team1: 'ARGENTINA', team2: 'AUSTRIA', date: '2026-06-22', time: '14:00', result: undefined },
-  { id: 'i3', group: 'I', team1: 'FRANCIA', team2: 'IRAK', date: '2026-06-22', time: '18:00', result: undefined },
-  { id: 'i4', group: 'I', team1: 'NORUEGA', team2: 'SENEGAL', date: '2026-06-22', time: '21:00', result: undefined },
-  { id: 'j4', group: 'J', team1: 'JORDANIA', team2: 'ARGELIA', date: '2026-06-23', time: '00:00', result: undefined },
+  { id: 'j3', group: 'J', team1: 'ARGENTINA', team2: 'AUSTRIA', date: '2026-06-22', time: '14:00', result: { team1: 2, team2: 0 } },
+  { id: 'i3', group: 'I', team1: 'FRANCIA', team2: 'IRAK', date: '2026-06-22', time: '18:00', result: { team1: 3, team2: 0 } },
+  { id: 'i4', group: 'I', team1: 'NORUEGA', team2: 'SENEGAL', date: '2026-06-22', time: '21:00', result: { team1: 3, team2: 2 } },
+  { id: 'j4', group: 'J', team1: 'JORDANIA', team2: 'ARGELIA', date: '2026-06-23', time: '00:00', result: { team1: 1, team2: 2 } },
 
   // ========== FECHA 13 ==========
   { id: 'k3', group: 'K', team1: 'PORTUGAL', team2: 'UZBEKISTÁN', date: '2026-06-23', time: '14:00', result: undefined },
