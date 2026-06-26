@@ -70,26 +70,26 @@ export const matches: Match[] = [
   { id: 'j4', group: 'J', team1: 'JORDANIA', team2: 'ARGELIA', date: '2026-06-23', time: '00:00', result: { team1: 1, team2: 2 } },
 
   // ========== FECHA 13 ==========
-  { id: 'k3', group: 'K', team1: 'PORTUGAL', team2: 'UZBEKISTÁN', date: '2026-06-23', time: '14:00', result: undefined },
-  { id: 'l3', group: 'L', team1: 'INGLATERRA', team2: 'GHANA', date: '2026-06-23', time: '17:00', result: undefined },
-  { id: 'l4', group: 'L', team1: 'PANAMÁ', team2: 'CROACIA', date: '2026-06-23', time: '20:00', result: undefined },
-  { id: 'k4', group: 'K', team1: 'COLOMBIA', team2: 'RD CONGO', date: '2026-06-23', time: '23:00', result: undefined },
+  { id: 'k3', group: 'K', team1: 'PORTUGAL', team2: 'UZBEKISTÁN', date: '2026-06-23', time: '14:00', result: { team1: 5, team2: 0 } },
+  { id: 'l3', group: 'L', team1: 'INGLATERRA', team2: 'GHANA', date: '2026-06-23', time: '17:00', result: { team1: 0, team2: 0 } },
+  { id: 'l4', group: 'L', team1: 'PANAMÁ', team2: 'CROACIA', date: '2026-06-23', time: '20:00', result: { team1: 0, team2: 1 } },
+  { id: 'k4', group: 'K', team1: 'COLOMBIA', team2: 'RD CONGO', date: '2026-06-23', time: '23:00', result: { team1: 1, team2: 0 } },
 
   // ========== FECHA 14 ==========
-  { id: 'b5', group: 'B', team1: 'SUIZA', team2: 'CANADÁ', date: '2026-06-24', time: '16:00', result: undefined },
-  { id: 'b6', group: 'B', team1: 'BOSNIA Y HERZEGOVINA', team2: 'QATAR', date: '2026-06-24', time: '16:00', result: undefined },
-  { id: 'c5', group: 'C', team1: 'ESCOCIA', team2: 'BRASIL', date: '2026-06-24', time: '19:00', result: undefined },
-  { id: 'c6', group: 'C', team1: 'MARRUECOS', team2: 'HAITÍ', date: '2026-06-24', time: '19:00', result: undefined },
-  { id: 'a5', group: 'A', team1: 'REPÚBLICA CHECA', team2: 'MÉXICO', date: '2026-06-24', time: '22:00', result: undefined },
-  { id: 'a6', group: 'A', team1: 'SUDÁFRICA', team2: 'COREA DEL SUR', date: '2026-06-24', time: '22:00', result: undefined },
+  { id: 'b5', group: 'B', team1: 'SUIZA', team2: 'CANADÁ', date: '2026-06-24', time: '16:00', result: { team1: 2, team2: 1 } },
+  { id: 'b6', group: 'B', team1: 'BOSNIA Y HERZEGOVINA', team2: 'QATAR', date: '2026-06-24', time: '16:00', result: { team1: 3, team2: 1 } },
+  { id: 'c5', group: 'C', team1: 'ESCOCIA', team2: 'BRASIL', date: '2026-06-24', time: '19:00', result: { team1: 0, team2: 3 } },
+  { id: 'c6', group: 'C', team1: 'MARRUECOS', team2: 'HAITÍ', date: '2026-06-24', time: '19:00', result: { team1: 4, team2: 2 } },
+  { id: 'a5', group: 'A', team1: 'REPÚBLICA CHECA', team2: 'MÉXICO', date: '2026-06-24', time: '22:00', result: { team1: 0, team2: 3 } },
+  { id: 'a6', group: 'A', team1: 'SUDÁFRICA', team2: 'COREA DEL SUR', date: '2026-06-24', time: '22:00', result: { team1: 1, team2: 0 } },
 
   // ========== FECHA 15 ==========
-  { id: 'e5', group: 'E', team1: 'ECUADOR', team2: 'ALEMANIA', date: '2026-06-25', time: '17:00', result: undefined },
-  { id: 'e6', group: 'E', team1: 'CURAZAO', team2: 'COSTA DE MARFIL', date: '2026-06-25', time: '17:00', result: undefined },
-  { id: 'f5', group: 'F', team1: 'TÚNEZ', team2: 'PAÍSES BAJOS', date: '2026-06-25', time: '20:00', result: undefined },
-  { id: 'f6', group: 'F', team1: 'JAPÓN', team2: 'SUECIA', date: '2026-06-25', time: '20:00', result: undefined },
-  { id: 'd5', group: 'D', team1: 'TURQUÍA', team2: 'ESTADOS UNIDOS', date: '2026-06-25', time: '23:00', result: undefined },
-  { id: 'd6', group: 'D', team1: 'PARAGUAY', team2: 'AUSTRALIA', date: '2026-06-25', time: '23:00', result: undefined },
+  { id: 'e5', group: 'E', team1: 'ECUADOR', team2: 'ALEMANIA', date: '2026-06-25', time: '17:00', result: { team1: 2, team2: 1 } },
+  { id: 'e6', group: 'E', team1: 'CURAZAO', team2: 'COSTA DE MARFIL', date: '2026-06-25', time: '17:00', result: { team1: 0, team2: 2 } },
+  { id: 'f5', group: 'F', team1: 'TÚNEZ', team2: 'PAÍSES BAJOS', date: '2026-06-25', time: '20:00', result: { team1: 1, team2: 3 } },
+  { id: 'f6', group: 'F', team1: 'JAPÓN', team2: 'SUECIA', date: '2026-06-25', time: '20:00', result: { team1: 1, team2: 1 } },
+  { id: 'd5', group: 'D', team1: 'TURQUÍA', team2: 'ESTADOS UNIDOS', date: '2026-06-25', time: '23:00', result: { team1: 3, team2: 2 } },
+  { id: 'd6', group: 'D', team1: 'PARAGUAY', team2: 'AUSTRALIA', date: '2026-06-25', time: '23:00', result: { team1: 0, team2: 0 } },
   
   // ========== FECHA 16 ==========
   { id: 'i5', group: 'I', team1: 'NORUEGA', team2: 'FRANCIA', date: '2026-06-26', time: '16:00', result: undefined },
