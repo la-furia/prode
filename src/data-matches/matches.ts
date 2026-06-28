@@ -100,12 +100,12 @@ export const matches: Match[] = [
   { id: 'g6', group: 'G', team1: 'EGIPTO', team2: 'IRÁN', date: '2026-06-27', time: '00:00', result: { team1: 1, team2: 1 } },
   
   // ========== FECHA 17 ==========
-  { id: 'l5', group: 'L', team1: 'PANAMÁ', team2: 'INGLATERRA', date: '2026-06-27', time: '18:00', result: undefined },
-  { id: 'l6', group: 'L', team1: 'CROACIA', team2: 'GHANA', date: '2026-06-27', time: '18:00', result: undefined },
-  { id: 'k5', group: 'K', team1: 'COLOMBIA', team2: 'PORTUGAL', date: '2026-06-27', time: '20:30', result: undefined },
-  { id: 'k6', group: 'K', team1: 'RD CONGO', team2: 'UZBEKISTÁN', date: '2026-06-27', time: '20:30', result: undefined },
-  { id: 'j5', group: 'J', team1: 'JORDANIA', team2: 'ARGENTINA', date: '2026-06-27', time: '23:00', result: undefined },
-  { id: 'j6', group: 'J', team1: 'ARGELIA', team2: 'AUSTRIA', date: '2026-06-27', time: '23:00', result: undefined },
+  { id: 'l5', group: 'L', team1: 'PANAMÁ', team2: 'INGLATERRA', date: '2026-06-27', time: '18:00', result: { team1: 0, team2: 2 } },
+  { id: 'l6', group: 'L', team1: 'CROACIA', team2: 'GHANA', date: '2026-06-27', time: '18:00', result: { team1: 1, team2: 2 } },
+  { id: 'k5', group: 'K', team1: 'COLOMBIA', team2: 'PORTUGAL', date: '2026-06-27', time: '20:30', result: { team1: 0, team2: 0 } },
+  { id: 'k6', group: 'K', team1: 'RD CONGO', team2: 'UZBEKISTÁN', date: '2026-06-27', time: '20:30', result: { team1: 3, team2: 1 } },
+  { id: 'j5', group: 'J', team1: 'JORDANIA', team2: 'ARGENTINA', date: '2026-06-27', time: '23:00', result: { team1: 1, team2: 3 } },
+  { id: 'j6', group: 'J', team1: 'ARGELIA', team2: 'AUSTRIA', date: '2026-06-27', time: '23:00', result: { team1: 3, team2: 3 } },
   
 
   // ========== 16° DE FINAL (se agregarán resultados después) ==========
